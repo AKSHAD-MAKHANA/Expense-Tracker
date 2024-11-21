@@ -70,6 +70,3 @@ This project was developed as a collaborative effort by a group of students lear
 - Akshad Makhana
 
 ---
-
-## 🌐 Connect
-**Developers**: [Your Team Name or Individual Names](https://github.com/team-or-username)
