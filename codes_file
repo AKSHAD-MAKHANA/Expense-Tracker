@@ -23,6 +23,8 @@ class ExpenseManager:
             totals[cat] += amt
         return totals
 
+    def calculate_total_expenses(self):
+        return sum(expense[2] for expense in self.expenses)
 
 class ExpenseTrackerApp:
     def __init__(self, root):
@@ -57,6 +59,7 @@ class ExpenseTrackerApp:
         action_frame = ttk.Frame(root)
         action_frame.pack(fill=tk.X)
         ttk.Button(action_frame, text="Pie Chart", command=self.show_pie_chart).pack(side=tk.LEFT)
+        ttk.Button(action_frame, text="Show Total Expense", command=self.show_total_expense).pack(side=tk.LEFT)
 
     def add_expense(self):
         try:
@@ -90,12 +93,14 @@ class ExpenseTrackerApp:
         plt.axis("equal")
         plt.show()
 
+    def show_total_expense(self):
+        total_expense = self.manager.calculate_total_expenses()
+        messagebox.showinfo("Total Expense", f"Total Expenses: ₹{total_expense:.2f}")
 
 def main():
     root = tk.Tk()
     ExpenseTrackerApp(root)
     root.mainloop()
-
 
 if __name__ == "__main__":
     main()
